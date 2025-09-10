@@ -32,10 +32,13 @@ body.dark-mode {
 /* Base Styles */
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background-color: var(--bg-body);
     color: var(--text-primary);
     transition: background-color 0.3s, color 0.3s;
+    height: 100vh;
+    overflow: hidden; /* Prevent body scrolling */
 }
 
 /* Header */
@@ -73,24 +76,29 @@ button#theme-toggle:hover {
 main {
     display: flex;
     height: 92vh;
-    overflow: hidden;
+    overflow: hidden; /* Prevent main scrolling */
 }
 
 .left-pane {
     width: 15%;
     background-color: transparent;
     padding: 1rem;
+    overflow: hidden; /* Prevent left pane scrolling */
+    box-sizing: border-box;
 }
 
 #divider {
     width: 2px;
     background-color: var(--bg-divider);
+    flex-shrink: 0; /* Prevent divider from shrinking */
 }
 
 .right-pane {
     flex-grow: 1;
     background-color: transparent;
     padding: 1rem;
+    overflow: hidden; /* Prevent right pane scrolling */
+    box-sizing: border-box;
 }
 
 /* Section Titles */
@@ -106,13 +114,14 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Prevent input section scrolling */
 }
 
 .search-container {
     position: relative;
-    flex-grow: 1;
+    flex-shrink: 0; /* Prevent container from shrinking */
     display: flex;
-    max-height: 50px;
+    height: 50px; /* Fixed height instead of max-height */
 }
 
 #prompt-input {
@@ -126,6 +135,7 @@ main {
     font-size: 1rem;
     font-family: inherit;
     transition: border-color 0.3s, background-color 0.3s;
+    box-sizing: border-box;
 }
 
 #prompt-input:focus {
@@ -160,6 +170,7 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Prevent output section scrolling */
 }
 
 #output-box {
@@ -174,8 +185,11 @@ main {
     font-size: 1rem;
     font-family: inherit;
     line-height: 1.5;
-    overflow-y: auto;
+    overflow-y: auto; /* ONLY allow scrolling here */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
     transition: border-color 0.3s, background-color 0.3s;
+    box-sizing: border-box;
+    min-height: 0; /* Important for flex child to shrink */
 }
 
 .placeholder-text {
@@ -196,6 +210,7 @@ main {
     cursor: pointer;
     font-size: 0.9rem;
     transition: background-color 0.3s, transform 0.2s;
+    z-index: 1; /* Ensure button stays above content */
 }
 
 .copy-button:hover {
