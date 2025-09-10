@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DraftDodgers</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DraftDodgers</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header>
-    <h1>DraftDodgers</h1>
-    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
-  </header>
+<body class="light-mode">
+    <header>
+        <h1>DraftDodgers</h1>
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </header>
 
-  <main id="split-view">
-    <section class="pane left-pane">
-      <p>Left Pane Content</p>
-    </section>
-    <div id="divider"></div>
-    <section class="pane right-pane">
-      <p>Right Pane Content</p>
-    </section>
-  </main>
+    <main id="split-view">
+        <section class="pane left-pane">
+            <div class="input-section">
+                <h2 class="section-title">Prompt Input</h2>
+                <div class="search-container">
+                    <input type="text" id="prompt-input" placeholder="Provide a prompt">
+                    <button id="send-btn" class="send-button">➤</button>
+                </div>
+            </div>
+        </section>
+        <div id="divider"></div>
+        <section class="pane right-pane">
+            <div class="output-section">
+                <h2 class="section-title">Draft Dodgers Output</h2>
+                <div id="output-box">
+                    <span class="placeholder-text">Output will appear here</span>
+                    <button id="copy-btn" class="copy-button" style="display: none;">📋 Copy</button>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
